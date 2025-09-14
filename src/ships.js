@@ -1,4 +1,4 @@
-export class Ship {
+class Ship {
     constructor(name,length) {
         this.name = name;
         this.length = length;
@@ -6,12 +6,17 @@ export class Ship {
         this.sunken = false;
     }
     hit() {
-        this.hitsTaken++
+        if (this.isSunk()) {
+            alert('This ship has been sunk!')
+        } else
+            this.hitsTaken++
     }
     isSunk() {
         if (this.hitsTaken === this.length) {
             this.sunken = true;
+            alert('This ship has been sunk!')
         }
+        return this.sunken;
     }
 }
 
