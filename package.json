@@ -1,10 +1,10 @@
 {
-  "name": "webpack-template",
+  "name": "battleship-browser-game",
   "version": "1.0.0",
-  "description": "",
+  "description": "An in-browser version of Battleship, a naval conquest game.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
