@@ -1,22 +1,21 @@
 import "./styles.css"
-const Ship = require("./ships")
+const Gameboard = require('./gameboard')
 
-// Player Ships
-const carrier = new Ship('carrier',5);
-const battleship = new Ship('battleship',4);
-const destroyer = new Ship('destroyer', 3);
-const submarine1 = new Ship('submarine', 3);
-const submarine2 = new Ship('submarine',3);
-const patrolBoat1 = new Ship('patrol boat',2);
-const patrolBoat2 = new Ship('patrol boat', 2);
-const patrolBoat3 = new Ship('patrol boat',2);
+let startGame = document.getElementById('startGame');
 
-// CPU Ships 
-const cpuCarrier = new Ship('carrier',5);
-const cpuBattleship = new Ship('battleship',4);
-const cpuDestroyer = new Ship('destroyer', 3);
-const cpuSubmarine1 = new Ship('submarine', 3);
-const cpuSubmarine2 = new Ship('submarine',3);
-const cpuPatrolBoat1 = new Ship('patrol boat',2);
-const cpuPatrolBoat2 = new Ship('patrol boat', 2);
-const cpuPatrolBoat3 = new Ship('patrol boat',2);
+startGame.addEventListener('click', () => {
+    let newGame = new Gameboard();
+    newGame.createShips()
+
+    function generateBoards(targetID) {
+        for (let i = 0; i < 100; i++) {
+            let newSquare = document.createElement('div');
+            newSquare.classList.add('grid-square')
+            let gameboard = document.getElementById(targetID);
+            gameboard.appendChild(newSquare)
+        }
+    }
+    // generate player boards
+    generateBoards('playerBoard')
+    generateBoards('enemyBoard')
+})
