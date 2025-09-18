@@ -6,7 +6,48 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <button class="startGame" id="startGame">Generate Grid</button>
+    <game-instructions class="messages" id="messages"></game-instructions>
+    <gamepieces class="piece-container" id="currPieces">
+        <div id="drag1" draggable="true" ondragstart="dragstartHandler(event)">I'm draggable!</div>
+        <div id="drag2" draggable="true" ondragstart="dragstartHandler(event)">I'm draggable!</div>
+        <div id="drag3" draggable="true" ondragstart="dragstartHandler(event)">I'm draggable!</div>
+        <div id="drag4" draggable="true" ondragstart="dragstartHandler(event)">I'm draggable!</div>
+        <div class="drop" id="drop1" ondrop="dropHandler(event)" ondragover="dragoverHandler(event)"></div>
+    </gamepieces>
+    <div class="labels">
+        <h4 class="label">Player Board</h4>
+        <h4 class="label">Enemy Board</h4>
+    </div>
+
+    <div class="gameboards">
+        
+        <gameboard class="game-container" id="playerBoard">
+            
+            <!-- On game start, JS will generate a 10x10 grid of squares --> 
+        </gameboard>
+        
+        <gameboard class="game-container" id="enemyBoard">
+            
+            <!-- On game start, JS will generate a 10x10 grid of squares -->
+        </gameboard>
+    </div>
+
+    <script >
+        function dropHandler(ev) {
+            ev.preventDefault();
+            const data = ev.dataTransfer.getData('text')
+            ev.target.appendChild(document.getElementById(data))
+        }
+        function dragstartHandler(ev) {
+            ev.dataTransfer.setData('text', ev.target.id)
+        }
+        function dragoverHandler(ev) {
+            ev.preventDefault();
+        }
+
+
+    </script>
     <script src="index.js" type="module"></script>
 </body>
 </html>
