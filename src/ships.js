@@ -4,6 +4,7 @@ class Ship {
         this.length = length;
         this.hitsTaken = 0;
         this.sunken = false;
+        this.direction= true; // true is horizontal, false is vertical
     }
     hit() {
         if (this.isSunk()) {
@@ -17,6 +18,11 @@ class Ship {
             alert('This ship has been sunk!')
         }
         return this.sunken;
+    }
+    toggleDirection() {
+        if (!this.direction) return this.direction = true
+        
+        return this.direction = false
     }
 }
 
